@@ -1,0 +1,57 @@
+include <stdio.h> 
+
+#include <stdlib.h> 
+
+struct node { 
+
+ int element; 
+
+ struct node* left; 
+
+ struct node* right; 
+
+}; 
+
+struct node* createNode(int val) 
+
+{ 
+
+ struct node* Node = (struct node*)malloc(sizeof(struct node)); 
+
+ Node->element = val; 
+
+ Node->left = NULL; 
+
+ Node->right = NULL; 
+
+ return (Node); 
+
+} 
+
+void traversePreorder(struct node* root) 
+
+{ 
+
+ if (root == NULL) 
+
+ return; 
+
+ printf(" %d ", root->element); 
+
+ traversePreorder(root->left); 
+
+ traversePreorder(root->right); 
+
+} 
+
+void traverseInorder(struct node* root) 
+
+{ 
+
+ if (root == NULL) 
+
+ return; 
+
+ traverseInorder(root->left); 
+
+ printf(" %d ", root->element); 
